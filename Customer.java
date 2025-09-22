@@ -8,6 +8,8 @@ public class Customer {
     private String phoneNumber;
     private List<Invoice> purchaseHistory = new ArrayList<>();
 
+    private List<Invoice> invoices = new ArrayList<>();
+
     public Customer(int customerID, String name, String address, String phoneNumber) {
         this.customerID = customerID;
         this.name = name;
@@ -28,6 +30,10 @@ public class Customer {
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
     public List<Invoice> getPurchaseHistory() { return new ArrayList<>(purchaseHistory); }
+
+    public List<Invoice> getInvoices() {
+        return new ArrayList<>(invoices);
+    }
 
     // Methods
     public void registerCustomer() {
@@ -57,6 +63,10 @@ public class Customer {
       }
     }
 
+    public void addInvoice(Invoice invoice) {
+        if (invoice != null) invoices.add(invoice);
+    }
+
     @Override
     public String toString() {
         return "Customer { " +
@@ -66,5 +76,4 @@ public class Customer {
                 ", phoneNumber: " + phoneNumber + " }";
     }
 }
-
 
